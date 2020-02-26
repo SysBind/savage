@@ -1,5 +1,5 @@
 # Savage
-Unopinioned SVG &amp; CSS Studio
+Unopinionated SVG &amp; CSS Studio
 
 ## Principles
 
