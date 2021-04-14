@@ -2,43 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <script src="button.js"></script>
+    <script src="webcomponent.js"></script>
   </head>
   <body>
     <div id="main"></div>
     <div id="button"></div>
-    <script src="main.js"></script>
-    <script src="button.js"></script>
-    <script>
-      class ElmElement extends HTMLElement {
-          connectedCallback() {
-              const props = {}
-              for (let i = 0; i < this.attributes.length; i++) {
-                  const name = this.attributes[i].name
-                  const value = this.attributes[i].value
-                  console.log(name + " = " + value)
-                  props[name] = value
-              }
-              
-              // clear content
-              this.innerHTML = ''
-              // container for elm
-              const elmDiv = document.createElement('div')              
-              this.appendChild(elmDiv)
-
-              const elmElement = Elm.Button.init({
-                  flags: props,
-                  node: elmDiv,
-              })
-          }
-      }
-      customElements.define('elm-button', ElmElement)
-      
-      console.log(Elm.Button)
-      var app = Elm.Main.init({
-          node: document.getElementById("main"),
-          flags: {name: "Haravard"}
-      });
-    </script>
     <elm-button name="Haravard-WC"/>
   </body>
 </html>

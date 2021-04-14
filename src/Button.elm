@@ -1,7 +1,9 @@
 module Button exposing (main)
 
-import Html exposing (text, Html)
 import Browser
+
+import Svg exposing (..)
+import Svg.Attributes exposing (..)
 
 type Msg
     = NoOp
@@ -16,9 +18,23 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     ( model, Cmd.none )
 
-view : Model -> Html Msg
+view : Model -> Svg Msg
 view model =
-  text ("Button: " ++ model.name)
+    svg
+    [ viewBox "0 0 400 400"
+    , width "400"
+    , height "400"
+    ]
+    [ circle
+        [ cx "50"
+        , cy "50"
+        , r "40"
+        , fill "red"
+        , stroke "black"
+        , strokeWidth "3"
+        ]
+     []
+    ]
 
 
 type alias Flags =
